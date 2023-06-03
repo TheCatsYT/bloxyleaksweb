@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign In</title>
+  <link rel="icon" href="bloxyleaks.png" type="image/png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #3498db;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .sign-in-form {
+      max-width: 400px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Captcha Styles */
+    #captcha {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #captcha img {
+      margin-bottom: 10px;
+    }
+
+    #captcha-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+
+    #captcha-submit {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #captcha-submit:hover {
+      background-color: #45a049;
+    }
+
+    #captcha-error-message {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sign-in-form">
+      <h1>BloxyLeaks Official Sign-In</h1>
+
+      <!-- Captcha -->
+      <div id="captcha">
+        <p>Please complete the captcha:</p>
+        <img src="captcha_image.png" alt="Captcha Image">
+        <input type="text" id="captcha-input" placeholder="Enter the characters" required>
+        <button id="captcha-submit">Submit</button>
+        <p id="captcha-error-message"></p>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login-form" style="display: none;">
+        <form id="login-form">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+          <input type="submit" value="Sign In">
+        </form>
+      </div>
+
+      <!-- Error Message -->
+      <p class="error-message" id="error-message"></p>
+    </div>
+
+    <footer>
+      <p>&copy; 2023 BloxyLeaks, Inc. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Fetch token from the server
+      fetch("token.php")
+        .then(function(response) {
+          return response.text();
+        })
+        .then(function(token) {
+          document.getElementById("captcha-submit").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            var userInput = document.getElementById("captcha-input").value;
+            var expectedValue = "ABCD"; // Replace with the expected captcha value
+
+            if (userInput === expectedValue) {
+              document.getElementById("captcha").style.display = "none"; // Hide captcha
+              document.getElementById("login-form").style.display = "block"; // Show login form
+              document.getElementById("login-form").setAttribute("action", "login.php?token=" + token); // Pass the token as a URL parameter
+            } else {
+              document.getElementById("captcha-error-message").textContent = "Invalid captcha, please try again.";
+            }
+          });
+        })
+        .catch(function(error) {
+          console.error("Error fetching token:", error);
+        });
+
+      // Login form submission
+      document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form from submitting
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var token = new URLSearchParams(window.location.search).get("token");
+
+        // Perform token validation
+        fetch("validate-token.php?token=" + token)
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(result) {
+            if (result === "valid") {
+              // Perform basic validation
+              if (username === "admin" && password === "password") {
+                alert("Sign-in successful!");
+                window.location.href = "protected.html"; // Redirect to the protected page
+              } else {
+                document.getElementById("error-message").textContent = "Invalid username or password";
+              }
+            } else {
+              document.getElementById("error-message").textContent = "Invalid token";
+            }
+          })
+          .catch(function(error) {
+            console.error("Error validating token:", error);
+          });
+      });
+    });
+  </script>
+</body>
+</html>
