@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <script> console.log("Do NOT paste any provided code given by anyone else you are unknown of!")</script>
 <head>
   <title>Sign In</title>
   <link rel="icon" href="bloxyleaks.png" type="image/png">
@@ -11,8 +10,15 @@
     }
 
     .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .sign-in-form {
       max-width: 400px;
-      margin: 0 auto;
       padding: 20px;
       background-color: rgba(255, 255, 255, 0.8);
       border: 1px solid #ccc;
@@ -53,7 +59,7 @@
       background-color: #45a049;
     }
 
-    #error-message {
+    .error-message {
       color: red;
       margin-top: 10px;
       text-align: center;
@@ -107,40 +113,42 @@
 </head>
 <body>
   <div class="container">
-    <h1>BloxyLeaks Official Sign-In</h1>
+    <div class="sign-in-form">
+      <h1>BloxyLeaks Official Sign-In</h1>
 
-    <!-- Captcha -->
-    <div id="captcha">
-      <p>Please complete the captcha:</p>
-      <img src="captcha_image.png" alt="Captcha Image">
-      <input type="text" id="captcha-input" placeholder="Enter the characters" required>
-      <button id="captcha-submit">Submit</button>
-      <p id="captcha-error-message"></p>
+      <!-- Captcha -->
+      <div id="captcha">
+        <p>Please complete the captcha:</p>
+        <img src="captcha_image.png" alt="Captcha Image">
+        <input type="text" id="captcha-input" placeholder="Enter the characters" required>
+        <button id="captcha-submit">Submit</button>
+        <p id="captcha-error-message"></p>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login-form" style="display: none;">
+        <form>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+          <input type="submit" value="Sign In">
+        </form>
+      </div>
+
+      <!-- Error Message -->
+      <p class="error-message" id="error-message"></p>
     </div>
 
-    <!-- Login Form -->
-    <div id="login-form" style="display: none;">
-      <form>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required>
-
-        <input type="submit" value="Sign In">
-      </form>
-    </div>
-
-    <!-- Error Message -->
-    <p id="error-message"></p>
+    <footer>
+      <p>&copy; 2023 BloxyLeaks, Inc. All rights reserved.</p>
+    </footer>
   </div>
 
-  <footer>
-    <p>&copy; 2023 BloxyLeaks, Inc. All rights reserved.</p>
-  </footer>
-
   <script>
-   function _0x51a9(_0x872ef1,_0x2c1fda){var _0xd46670=_0xd466();return _0x51a9=function(_0x51a989,_0x14c320){_0x51a989=_0x51a989-0xf9;var _0xc1b45d=_0xd46670[_0x51a989];return _0xc1b45d;},_0x51a9(_0x872ef1,_0x2c1fda);}var _0x4bc803=_0x51a9;function _0xd466(){var _0x2810ac=['ABCD','captcha-error-message','2100208ngjJQz','7GSIHRN','admin','submit','9NTAHXF','1836282nqEtdO','textContent','Sign-in\x20successful!','protected.html','none','style','getElementById','value','762826EdlFom','1466072jzTDjR','DOMContentLoaded','block','10rrriQs','password','addEventListener','click','8625530nXbLAF','667230IEjRxR','display','723868ZqSepH','href','login-form','captcha-input','Invalid\x20username\x20or\x20password'];_0xd466=function(){return _0x2810ac;};return _0xd466();}(function(_0x2ab223,_0x383a37){var _0x39461d=_0x51a9,_0x1e21bb=_0x2ab223();while(!![]){try{var _0x55426c=parseInt(_0x39461d(0x10c))/0x1+-parseInt(_0x39461d(0x10d))/0x2+-parseInt(_0x39461d(0x115))/0x3+-parseInt(_0x39461d(0x117))/0x4*(-parseInt(_0x39461d(0x110))/0x5)+-parseInt(_0x39461d(0x104))/0x6+parseInt(_0x39461d(0x100))/0x7*(-parseInt(_0x39461d(0xff))/0x8)+-parseInt(_0x39461d(0x103))/0x9*(-parseInt(_0x39461d(0x114))/0xa);if(_0x55426c===_0x383a37)break;else _0x1e21bb['push'](_0x1e21bb['shift']());}catch(_0x73d08a){_0x1e21bb['push'](_0x1e21bb['shift']());}}}(_0xd466,0x711be),document[_0x4bc803(0x112)](_0x4bc803(0x10e),function(){var _0x4d8f9b=_0x4bc803;document[_0x4d8f9b(0x10a)]('captcha-submit')['addEventListener'](_0x4d8f9b(0x113),function(_0x1e124f){var _0x20c1e0=_0x4d8f9b;_0x1e124f['preventDefault']();var _0x5b5f34=document[_0x20c1e0(0x10a)](_0x20c1e0(0xfb))[_0x20c1e0(0x10b)],_0x13e91c=_0x20c1e0(0xfd);_0x5b5f34===_0x13e91c?(document[_0x20c1e0(0x10a)]('captcha')[_0x20c1e0(0x109)][_0x20c1e0(0x116)]=_0x20c1e0(0x108),document[_0x20c1e0(0x10a)](_0x20c1e0(0xfa))[_0x20c1e0(0x109)][_0x20c1e0(0x116)]=_0x20c1e0(0x10f)):document['getElementById'](_0x20c1e0(0xfe))['textContent']='Invalid\x20captcha,\x20please\x20try\x20again.';}),document[_0x4d8f9b(0x10a)](_0x4d8f9b(0xfa))[_0x4d8f9b(0x112)](_0x4d8f9b(0x102),function(_0x101ef6){var _0x14a985=_0x4d8f9b;_0x101ef6['preventDefault']();var _0x49c346=document['getElementById']('username')[_0x14a985(0x10b)],_0x5ceda2=document['getElementById'](_0x14a985(0x111))[_0x14a985(0x10b)];_0x49c346===_0x14a985(0x101)&&_0x5ceda2===_0x14a985(0x111)?(alert(_0x14a985(0x106)),window['location'][_0x14a985(0xf9)]=_0x14a985(0x107)):document[_0x14a985(0x10a)]('error-message')[_0x14a985(0x105)]=_0x14a985(0xfc);});}));
+    function _0x41e7(_0x1f395d,_0x1f3705){var _0x315104=_0x3151();return _0x41e7=function(_0x41e716,_0x519970){_0x41e716=_0x41e716-0x125;var _0xab94ca=_0x315104[_0x41e716];return _0xab94ca;},_0x41e7(_0x1f395d,_0x1f3705);}function _0x3151(){var _0x108a8a=['captcha-submit','password','display','username','href','block','ABCD','30HIcTLg','41843wbiTUc','6mZwYpm','captcha','95SwOXSG','addEventListener','947421fAlgAr','login-form','captcha-input','value','getElementById','1429353qZLOGJ','53060XrFwAp','admin','preventDefault','captcha-error-message','Sign-in\x20successful!','DOMContentLoaded','Invalid\x20username\x20or\x20password','165MOKcHD','183036ofvSGp','474LKThIc','style','protected.html','click','8344QReqjJ','Invalid\x20captcha,\x20please\x20try\x20again.','textContent','submit','364384ErjrkR'];_0x3151=function(){return _0x108a8a;};return _0x3151();}var _0x53ef6e=_0x41e7;(function(_0x117a15,_0x58ac45){var _0x31e8d0=_0x41e7,_0x464630=_0x117a15();while(!![]){try{var _0xc7a6fe=-parseInt(_0x31e8d0(0x144))/0x1*(parseInt(_0x31e8d0(0x145))/0x2)+parseInt(_0x31e8d0(0x129))/0x3+parseInt(_0x31e8d0(0x12a))/0x4*(parseInt(_0x31e8d0(0x147))/0x5)+parseInt(_0x31e8d0(0x133))/0x6*(-parseInt(_0x31e8d0(0x137))/0x7)+parseInt(_0x31e8d0(0x13b))/0x8+parseInt(_0x31e8d0(0x149))/0x9*(-parseInt(_0x31e8d0(0x143))/0xa)+parseInt(_0x31e8d0(0x131))/0xb*(parseInt(_0x31e8d0(0x132))/0xc);if(_0xc7a6fe===_0x58ac45)break;else _0x464630['push'](_0x464630['shift']());}catch(_0xa73444){_0x464630['push'](_0x464630['shift']());}}}(_0x3151,0x7217d),document[_0x53ef6e(0x148)](_0x53ef6e(0x12f),function(){var _0x514677=_0x53ef6e;document[_0x514677(0x128)](_0x514677(0x13c))[_0x514677(0x148)](_0x514677(0x136),function(_0x758d1a){var _0x9c28f8=_0x514677;_0x758d1a[_0x9c28f8(0x12c)]();var _0x16c0f5=document[_0x9c28f8(0x128)](_0x9c28f8(0x126))[_0x9c28f8(0x127)],_0x4c6778=_0x9c28f8(0x142);_0x16c0f5===_0x4c6778?(document[_0x9c28f8(0x128)](_0x9c28f8(0x146))['style']['display']='none',document[_0x9c28f8(0x128)](_0x9c28f8(0x125))[_0x9c28f8(0x134)][_0x9c28f8(0x13e)]=_0x9c28f8(0x141)):document['getElementById'](_0x9c28f8(0x12d))[_0x9c28f8(0x139)]=_0x9c28f8(0x138);}),document[_0x514677(0x128)](_0x514677(0x125))[_0x514677(0x148)](_0x514677(0x13a),function(_0x351616){var _0x18d721=_0x514677;_0x351616['preventDefault']();var _0x28a4e2=document[_0x18d721(0x128)](_0x18d721(0x13f))[_0x18d721(0x127)],_0x532b76=document['getElementById'](_0x18d721(0x13d))[_0x18d721(0x127)];_0x28a4e2===_0x18d721(0x12b)&&_0x532b76==='password'?(alert(_0x18d721(0x12e)),window['location'][_0x18d721(0x140)]=_0x18d721(0x135)):document['getElementById']('error-message')[_0x18d721(0x139)]=_0x18d721(0x130);});}));
   </script>
 </body>
 </html>
